@@ -4,7 +4,7 @@ on:
   workflow_dispatch
 
 jobs:
-  entre-steps:
+  giropops:
     runs-on: ubuntu-latest
     steps:
       - name: Confere versao do ubuntu
