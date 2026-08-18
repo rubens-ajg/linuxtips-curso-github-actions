@@ -1,4 +1,4 @@
-name: Trabalho vendo arquivos compartilhados entre steps
+name: Primeiro Workflow Linuxtips
 
 on:
   workflow_dispatch
