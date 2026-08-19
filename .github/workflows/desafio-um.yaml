@@ -1,0 +1,23 @@
+name: Analisar imagem Docker
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "Imagem Docker (ex: alpine:latest)"
+        required: true
+        type: string
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download da imagem
+        run: docker pull ${{ inputs.image }}
+
+      - name: Listar imagens disponiveis
+        run: docker images
+
+      - name: Analisar vulnerabilidades
+        run: docker scout cves ${{ inputs.image }}
