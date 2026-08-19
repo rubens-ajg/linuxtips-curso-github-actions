@@ -23,6 +23,12 @@ jobs:
         run: |
           curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
           sh install-scout.sh
+        
+      - name: Login no Docker Hub
+        run: |
+          echo "${{ secrets.DOCKER_PAT }}" | docker login \
+            --username "${{ secrets.DOCKER_USERNAME }}" \
+            --password-stdin
 
       - name: Analisar vulnerabilidades
         run: docker scout cves ${{ inputs.image }}
